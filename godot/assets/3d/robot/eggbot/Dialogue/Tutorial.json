@@ -1,0 +1,71 @@
+{
+  "passages": [
+    {
+      "text": "Hi, I am here to teach you how to effectively operate your Navi.\n\n[[Continue -> Tutorial (2)]]",
+      "links": [
+        {
+          "name": "Continue ",
+          "link": " Tutorial (2)",
+          "pid": "2"
+        }
+      ],
+      "name": "Tutorial (1)",
+      "pid": "1",
+      "position": {
+        "x": "860",
+        "y": "374.5"
+      }
+    },
+    {
+      "text": "Would you like to learn more?\n\n[[Yes -> Tutorial (3a)]]\n[[No -> Tutorial (3b)]]",
+      "links": [
+        {
+          "name": "Yes ",
+          "link": " Tutorial (3a)",
+          "pid": "3"
+        },
+        {
+          "name": "No ",
+          "link": " Tutorial (3b)",
+          "pid": "4"
+        }
+      ],
+      "name": " Tutorial (2)",
+      "pid": "2",
+      "position": {
+        "x": "860",
+        "y": "524.5"
+      }
+    },
+    {
+      "text": "You can bring up a list of controls in the Menu.\n\n[[Continue -> Tutorial (3b)]]",
+      "links": [
+        {
+          "name": "Continue ",
+          "link": " Tutorial (3b)",
+          "pid": "4"
+        }
+      ],
+      "name": " Tutorial (3a)",
+      "pid": "3",
+      "position": {
+        "x": "726",
+        "y": "653.5"
+      }
+    },
+    {
+      "text": "Thats all then, come talk to me again if you want any tips.\n\n",
+      "name": " Tutorial (3b)",
+      "pid": "4",
+      "position": {
+        "x": "974",
+        "y": "673.5"
+      }
+    }
+  ],
+  "name": "Eggbot Tutorial",
+  "startnode": "1",
+  "creator": "Twine",
+  "creator-version": "2.3.9",
+  "ifid": "11071D4E-DF54-4D9D-A537-D62D544F1C29"
+}

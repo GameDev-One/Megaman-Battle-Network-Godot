@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/3d/key/fade_out.anim" type="Animation" id=1]
+[ext_resource path="res://assets/3d/key/idle.anim" type="Animation" id=2]
+
+[node name="AnimationPlayer" type="AnimationPlayer"]
+autoplay = "idle"
+anims/fade_out = ExtResource( 1 )
+anims/idle = ExtResource( 2 )

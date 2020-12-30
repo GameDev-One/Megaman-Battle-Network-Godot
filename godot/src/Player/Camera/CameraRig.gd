@@ -4,12 +4,16 @@ class_name CameraRig
 # Accessor class that gives the nodes in the scene access the player or some
 # frequently used nodes in the scene itself.
 
+# warning-ignore:unused_signal
 signal aim_fired(target_position)
+# warning-ignore:unused_signal
+signal object_found(object)
 
-onready var camera: InterpolatedCamera = $InterpolatedCamera
+onready var camera: ClippedCamera = $ClippedCamera
 onready var spring_arm: SpringArm = $SpringArm
-onready var aim_ray: RayCast = $InterpolatedCamera/AimRay
-onready var aim_target: Sprite3D = $AimTarget
+onready var aim_ray: RayCast = $ClippedCamera/AimRay
+onready var aim_target: TextureRect = $Recticle
+onready var muzzle: Position3D = $ClippedCamera/AimRay/Muzzle
 
 var player: KinematicBody
 

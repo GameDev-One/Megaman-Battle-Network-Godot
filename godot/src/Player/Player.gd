@@ -8,6 +8,5 @@ onready var camera: CameraRig = $CameraRig
 onready var skin: Mannequiny = $Mannequiny
 onready var state_machine: StateMachine = $StateMachine
 
-
 func _get_configuration_warning() -> String:
 	return "Missing camera node" if not camera else ""

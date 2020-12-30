@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/3d/platforms/mesh/Platforms.meshlib" type="MeshLibrary" id=1]
+
+[node name="StageOne" type="GridMap"]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 0, 0, 0 )
+mesh_library = ExtResource( 1 )
+cell_size = Vector3( 2, 1, 2 )
+cell_center_y = false
+cell_scale = 8.0
+data = {
+"cells": PoolIntArray( 0, 0, 1073741830, 8, 0, 7, 65516, 2, -1609564148, 0, 6, -1609170940, 65516, 6, -1609564148, 0, 10, 1441804, 65516, 10, 1048588, 0, 14, 1441804, 65516, 14, -1609564148, 0, 18, -1609170932, 65516, 18, 1048588, 0, 22, 1441804, 65516, 22, 1048588, 0, 26, 1441804, 65516, 26, 537919500, 0, 30, 655361, 65516, 30, 1048577, 65520, 30, 655372, 65524, 30, 655372, 65528, 30, 655372, 65532, 30, 655372, 65516, 65530, 1441796, 65516, 65534, 1048588 )
+}
+__meta__ = {
+"_editor_clip_": 0,
+"_editor_floor_": Vector3( 0, 0, 0 )
+}

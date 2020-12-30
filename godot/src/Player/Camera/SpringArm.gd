@@ -7,7 +7,6 @@ export var zoom := 0.5 setget set_zoom
 
 onready var _position_start: Vector3 = translation
 
-
 # Ensures that each value is greater than 0, and that length_range.x <= length_range.y
 # Then updates the zoom
 func set_length_range(value: Vector2) -> void:

@@ -8,7 +8,7 @@ extends PlayerState
 export var max_speed: = 12.0
 export var move_speed: = 10.0
 export var gravity = -80.0
-export var jump_impulse = 25
+export var jump_impulse = 45
 export(float, 0.1, 20.0, 0.1) var rotation_speed_factor: = 10.0
 
 var velocity: = Vector3.ZERO
@@ -42,7 +42,9 @@ func physics_process(delta: float) -> void:
 	velocity = player.move_and_slide(velocity, Vector3.UP)
 
 
+# warning-ignore:unused_argument
 func enter(msg: Dictionary = {}) -> void:
+# warning-ignore:return_value_discarded
 	player.camera.connect("aim_fired", self, "_on_Camera_aim_fired")
 
 

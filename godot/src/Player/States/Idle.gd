@@ -15,6 +15,7 @@ func physics_process(delta: float) -> void:
 		_state_machine.transition_to("Move/Air")
 
 
+# warning-ignore:unused_argument
 func enter(msg: Dictionary = {}) -> void:
 	_parent.velocity = Vector3.ZERO
 	skin.transition_to(skin.States.IDLE)

@@ -1,13 +1,14 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://src/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://src/Player/Mannequiny.tscn" type="PackedScene" id=2]
-[ext_resource path="res://src/Main/StateMachine/StateMachine.gd" type="Script" id=3]
+[ext_resource path="res://src/Main/StateMachine/state_machine.gd" type="Script" id=3]
 [ext_resource path="res://src/Player/States/Move.gd" type="Script" id=4]
 [ext_resource path="res://src/Player/States/Idle.gd" type="Script" id=5]
 [ext_resource path="res://src/Player/States/Air.gd" type="Script" id=6]
 [ext_resource path="res://src/Player/States/Run.gd" type="Script" id=7]
 [ext_resource path="res://src/Player/Camera/CameraRig.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/Player/States/Talk.gd" type="Script" id=9]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=1]
 
@@ -15,7 +16,9 @@
 radius = 0.25
 height = 1.25
 
-[node name="Player" type="KinematicBody"]
+[node name="Player" type="KinematicBody" groups=[
+"Player",
+]]
 script = ExtResource( 1 )
 
 [node name="Mannequiny" parent="." instance=ExtResource( 2 )]
@@ -35,6 +38,7 @@ initial_state = NodePath("Move/Idle")
 [node name="Move" type="Node" parent="StateMachine"]
 script = ExtResource( 4 )
 gravity = -100.0
+rotation_speed_factor = 20.0
 
 [node name="Idle" type="Node" parent="StateMachine/Move"]
 script = ExtResource( 5 )
@@ -45,7 +49,10 @@ script = ExtResource( 6 )
 [node name="Run" type="Node" parent="StateMachine/Move"]
 script = ExtResource( 7 )
 
+[node name="Talk" type="Node" parent="StateMachine"]
+script = ExtResource( 9 )
+
 [node name="CameraRig" parent="." instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.38644, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1.386, 0 )
 
 [editable path="Mannequiny"]

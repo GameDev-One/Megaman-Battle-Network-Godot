@@ -9,7 +9,7 @@ func _ready() -> void:
 func update(ray: RayCast) -> void:
 	ray.force_raycast_update()
 	var is_colliding := ray.is_colliding()
-	visible = is_colliding
+	visible = true
 	if is_colliding:
 		var collision_point := ray.get_collision_point()
 		var collision_normal := ray.get_collision_normal()

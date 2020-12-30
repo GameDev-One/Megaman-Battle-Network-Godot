@@ -8,6 +8,9 @@ func unhandled_input(event: InputEvent) -> void:
 	else:
 		_parent.unhandled_input(event)
 
-
+# warning-ignore:unused_argument
+func enter(msg: Dictionary = {}) -> void:
+	_parent.sensitivity_gamepad = Vector2(1.25,1.25)
+	
 func process(delta: float) -> void:
 	_parent.process(delta)

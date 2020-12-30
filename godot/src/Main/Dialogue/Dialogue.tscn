@@ -1,0 +1,119 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/Main/Dialogue/json_parser.gd" type="Script" id=1]
+[ext_resource path="res://src/Main/Dialogue/dialogue.gd" type="Script" id=2]
+[ext_resource path="res://assets/theme/gdquest.theme" type="Theme" id=3]
+
+[node name="Dialogue" type="Node"]
+script = ExtResource( 2 )
+
+[node name="UI" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 50.0
+margin_top = 50.0
+margin_right = -50.0
+margin_bottom = -50.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSort" type="HBoxContainer" parent="UI"]
+anchor_left = 0.55
+anchor_top = 0.612
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 800, 350 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DialoguePnl" type="Panel" parent="UI/HSort"]
+margin_right = 500.0
+margin_bottom = 380.0
+rect_min_size = Vector2( 500, 350 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UI/HSort/DialoguePnl"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 25.0
+margin_top = 25.0
+margin_right = -25.0
+margin_bottom = -25.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 3 )
+text = "EMPTY TEXT BOX"
+align = 1
+autowrap = true
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OptionPnl" type="Panel" parent="UI/HSort"]
+margin_left = 504.0
+margin_right = 819.0
+margin_bottom = 380.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 3 )
+
+[node name="VSort" type="VBoxContainer" parent="UI/HSort/OptionPnl"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="UI/HSort/OptionPnl/VSort"]
+margin_right = 315.0
+margin_bottom = 89.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 3 )
+text = "Option 1"
+flat = true
+
+[node name="Button2" type="Button" parent="UI/HSort/OptionPnl/VSort"]
+margin_top = 97.0
+margin_right = 315.0
+margin_bottom = 186.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 3 )
+text = "Option 2"
+flat = true
+
+[node name="Button3" type="Button" parent="UI/HSort/OptionPnl/VSort"]
+margin_top = 194.0
+margin_right = 315.0
+margin_bottom = 283.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 3 )
+text = "Option 3"
+flat = true
+
+[node name="Button4" type="Button" parent="UI/HSort/OptionPnl/VSort"]
+margin_top = 291.0
+margin_right = 315.0
+margin_bottom = 380.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 3 )
+text = "Option 4"
+flat = true
+
+[node name="JSONParser" type="Node" parent="."]
+script = ExtResource( 1 )
+[connection signal="pressed" from="UI/HSort/OptionPnl/VSort/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="UI/HSort/OptionPnl/VSort/Button2" to="." method="_on_Button2_pressed"]
+[connection signal="pressed" from="UI/HSort/OptionPnl/VSort/Button3" to="." method="_on_Button3_pressed"]
+[connection signal="pressed" from="UI/HSort/OptionPnl/VSort/Button4" to="." method="_on_Button4_pressed"]

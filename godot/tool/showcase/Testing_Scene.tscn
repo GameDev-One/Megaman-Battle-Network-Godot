@@ -1,0 +1,187 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://tool/showcase/Camera_Pivot.gd" type="Script" id=1]
+[ext_resource path="res://tool/showcase/UI.gd" type="Script" id=2]
+[ext_resource path="res://tool/showcase/Surface_Tool_Triangle.gd" type="Script" id=3]
+[ext_resource path="res://tool/showcase/Surface_Tool_Square.gd" type="Script" id=4]
+[ext_resource path="res://tool/showcase/Surface_Tool_TriangleFan.gd" type="Script" id=5]
+[ext_resource path="res://tool/showcase/Surface_Tool_Cube.gd" type="Script" id=6]
+[ext_resource path="res://src/MetalBot/MetalBot.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/Level/HomePage.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/3d/key/Key.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/3d/gate/Gate.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/3d/computer/Computer.tscn" type="PackedScene" id=11]
+
+
+
+[sub_resource type="PlaneMesh" id=1]
+size = Vector2( 20, 20 )
+
+[sub_resource type="CubeMesh" id=2]
+size = Vector3( 2, 1, 2 )
+
+[sub_resource type="Environment" id=3]
+background_mode = 1
+ambient_light_energy = 0.0
+fog_height_min = 0.0
+fog_height_max = 100.0
+tonemap_mode = 3
+ssao_enabled = true
+ssao_light_affect = 1.0
+ssao_quality = 0
+dof_blur_far_distance = 2.0
+glow_intensity = 0.5
+glow_bloom = 1.0
+
+[sub_resource type="SpatialMaterial" id=4]
+vertex_color_use_as_albedo = true
+params_cull_mode = 2
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_color = Color( 0.148438, 1, 0, 1 )
+roughness = 0.0
+
+[node name="Testing_Scene" type="Spatial"]
+
+[node name="Already_Made_Nodes" type="Spatial" parent="."]
+
+[node name="Floor" type="MeshInstance" parent="Already_Made_Nodes"]
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="Display_Holder" type="MeshInstance" parent="Already_Made_Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="Camera_Pivot" type="Spatial" parent="Already_Made_Nodes"]
+transform = Transform( 1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 0, 0, 0 )
+script = ExtResource( 1 )
+
+[node name="Camera" type="Camera" parent="Already_Made_Nodes/Camera_Pivot"]
+transform = Transform( 1, 0, 0, 0, 0.906308, 0.422618, 0, -0.422618, 0.906308, -2.48632e-07, 4.28368, 4.42201 )
+
+[node name="OmniLight" type="OmniLight" parent="Already_Made_Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, 2 )
+light_color = Color( 1, 0.835938, 0.835938, 1 )
+light_energy = 2.0
+shadow_enabled = true
+shadow_bias = 0.1
+omni_range = 7.0
+
+[node name="OmniLight2" type="OmniLight" parent="Already_Made_Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, -2 )
+light_color = Color( 0.789063, 0.915955, 1, 1 )
+light_energy = 2.0
+shadow_enabled = true
+shadow_bias = 0.1
+omni_range = 7.0
+
+[node name="OmniLight3" type="OmniLight" parent="Already_Made_Nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0 )
+light_color = Color( 0.81543, 1, 0.789063, 1 )
+light_energy = 2.0
+shadow_enabled = true
+shadow_bias = 0.1
+omni_range = 7.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Already_Made_Nodes"]
+environment = SubResource( 3 )
+
+[node name="UI" type="Control" parent="Already_Made_Nodes"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+path_to_examples = NodePath("../../Surface_Tool_Examples")
+
+[node name="Panel" type="Panel" parent="Already_Made_Nodes/UI"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -220.0
+margin_top = -40.0
+margin_right = 220.0
+
+[node name="Label" type="Label" parent="Already_Made_Nodes/UI"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -220.0
+margin_top = -24.0
+margin_right = 220.0
+margin_bottom = -10.0
+text = "Move your mouse to the edges of the game window to rotate view"
+align = 1
+
+[node name="Button_Previous" type="Button" parent="Already_Made_Nodes/UI"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -300.0
+margin_top = -39.0
+margin_right = -220.0
+margin_bottom = 1.0
+text = "Previous"
+
+[node name="Button_Next" type="Button" parent="Already_Made_Nodes/UI"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 220.0
+margin_top = -40.0
+margin_right = 300.0
+text = "Next"
+
+[node name="Surface_Tool_Examples" type="Spatial" parent="."]
+visible = false
+
+[node name="Surface_Tool_Triangle" type="MeshInstance" parent="Surface_Tool_Examples"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+visible = false
+material_override = SubResource( 4 )
+script = ExtResource( 3 )
+
+[node name="Surface_Tool_Square" type="MeshInstance" parent="Surface_Tool_Examples"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+visible = false
+material_override = SubResource( 4 )
+script = ExtResource( 4 )
+
+[node name="Surface_Tool_TriangleFan" type="MeshInstance" parent="Surface_Tool_Examples"]
+transform = Transform( 0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 1.75, 0 )
+visible = false
+material_override = SubResource( 4 )
+script = ExtResource( 5 )
+
+[node name="Surface_Tool_Cube" type="MeshInstance" parent="Surface_Tool_Examples"]
+transform = Transform( 0.853553, -0.146447, 0.5, 0.5, 0.5, -0.707107, -0.146447, 0.853553, 0.5, 0, 1.75, 0 )
+visible = false
+material_override = SubResource( 5 )
+script = ExtResource( 6 )
+
+[node name="MetalBot" parent="." instance=ExtResource( 7 )]
+transform = Transform( -1, 0, 3.25841e-07, 0, 1, 0, -3.25841e-07, 0, -1, 0, 1, 0 )
+visible = false
+
+[node name="HomePage" parent="." instance=ExtResource( 8 )]
+transform = Transform( -3.40352e-09, 2.23731e-09, 0.025, 0.0137325, 0.0208906, 0, -0.0208906, 0.0137325, -4.07302e-09, -1.66753, 2.09608, 0.407881 )
+visible = false
+data = {
+"cells": PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 536870912, 3, 0, 536870912, 4, 0, 0, 5, 0, 1441801, 65530, 0, 1048585, 65531, 0, 536870912, 65532, 0, -2146435072, 65533, 0, 1048576, 65534, 0, -535822336, 65535, 0, 1073741824, 0, 1, 0, 1, 1, 0, 2, 1, -536870912, 3, 1, 0, 4, 1, 0, 5, 1, 1441801, 65530, 1, 1048585, 65531, 1, 1048576, 65532, 1, 1048576, 65533, 1, -1072693248, 65534, 1, 1048576, 65535, 1, 0, 0, 2, -536870912, 1, 2, 0, 2, 2, 0, 3, 2, 0, 4, 2, -536870912, 5, 2, 1441801, 65530, 2, 1048585, 65531, 2, 0, 65532, 2, 1048584, 65533, 2, 1048576, 65534, 2, 1048576, 65535, 2, 0, 0, 3, 0, 1, 3, 0, 2, 3, 0, 3, 3, -536870912, 4, 3, 0, 5, 3, 1441801, 65530, 3, 1048585, 65531, 3, 0, 65532, 3, 0, 65533, 3, 0, 65534, 3, 0, 65535, 3, 0, 327676, 3, 1441796, 0, 4, 0, 1, 4, 0, 2, 4, 1073741824, 3, 4, 0, 4, 4, -536870912, 5, 4, -535429111, 65530, 4, -535822327, 65531, 4, 1073741824, 65532, 4, 0, 65533, 4, 0, 65534, 4, 0, 65535, 4, 0, 327676, 4, 1441804, 0, 5, -536215543, 1, 5, -536215543, 2, 5, 655369, 3, 5, 655369, 4, 5, -1073086455, 5, 5, 655362, 65530, 5, -535822334, 65531, 5, 655369, 65532, 5, 537526281, 65533, 5, 655369, 65534, 5, -536215543, 65535, 5, -536215543, 327676, 5, -535429108, 327676, 6, -535429108, 327676, 7, -1609170932, 327676, 8, 1048580, 327674, 9, 536870914, 327675, 9, 9, 327676, 9, -1610612727, 327677, 9, 536870921, 327678, 9, 538312706, 327674, 10, 1048585, 327675, 10, 1048576, 327676, 10, 1048576, 327677, 10, 537919488, 327678, 10, 538312713, 327674, 11, 537919497, 327675, 11, 537919488, 327676, 11, 1048576, 327677, 11, -1609564160, 327678, 11, -1609170935, 327672, 12, -2147483644, 327673, 12, 537526276, 327674, 12, 1048578, 327675, 12, -1609957367, 327676, 12, 537526281, 327677, 12, 655369, 327678, 12, 655362, 327676, 13, 1441796, 327676, 14, 1048588, 327676, 15, -1609564148, 327676, 16, 1048588, 327676, 17, -2146435060, 262144, 18, 537526284, 262145, 18, 655368, 262146, 18, 655364, 327676, 18, 1048577, 327677, 18, 655372, 327678, 18, 655372, 327679, 18, 655372, 524289, 19, 1441796, 524289, 20, 1441804, 524289, 21, -2146041844, 262147, 22, 2, 262148, 22, 9, 262149, 22, 1441794, 524289, 22, 1441804, 262147, 23, 1048585, 262148, 23, -2146435072, 262149, 23, 1441801, 524288, 23, 4, 524289, 23, -2146435072, 524290, 23, 655364, 262147, 24, 1048578, 262148, 24, 655369, 262149, 24, 1441801, 524289, 24, 1048580, 262149, 25, -2146041844, 262149, 26, 8, 524294, 26, 4, 524295, 26, 655372, 524296, 26, 655372, 524297, 26, 655372, 524298, 26, 1441793, 524289, 27, 4, 524290, 27, 538312705, 524293, 27, 1441796, 524298, 27, 1441804, 262145, 28, 1441796, 262151, 28, 655368, 262152, 28, 655370, 524290, 28, 537919500, 524293, 28, 1048585, 524294, 28, 1441794, 524298, 28, 1441804, 262145, 29, 1075183628, 524290, 29, 1048577, 524291, 29, 655372, 524292, 29, 537526284, 524293, 29, 537526281, 524294, 29, 655362, 524296, 29, 1, 524297, 29, 536870924, 524298, 29, 537526273, 262145, 30, 538312716, 524296, 30, 1441804, 262145, 31, 1441804, 262148, 31, 1, 262149, 31, 536870924, 262150, 31, 655364, 524291, 31, 536870913, 524292, 31, 536870924, 524293, 31, 1441793, 524296, 31, 1048577, 524297, 31, 655372, 524298, 31, 1441793, 262145, 32, 1048584, 262148, 32, 537919500, 524290, 32, 4, 524291, 32, 655361, 524293, 32, -535822332, 524298, 32, 1048588, 262145, 33, -2146041844, 262148, 33, 1048588, 262150, 33, 1, 262151, 33, 655372, 262152, 33, 655364, 262153, 33, 1441800, 524298, 33, -535429108, 262145, 34, -535429108, 262148, 34, 1048588, 262150, 34, 1612054540, 524297, 34, 1, 524298, 34, -1609957375, 262145, 35, -535822332, 262148, 35, 1048588, 262150, 35, -535429108, 524297, 35, -535429108, 262148, 36, 1048577, 262149, 36, -536215540, 262150, 36, -536215551, 524297, 36, 538312716, 524299, 36, -535429116, 524297, 37, -535822335, 524298, 37, 12, 524299, 37, -536215551, 0, 65530, -536870903, 1, 65530, 9, 2, 65530, -536870903, 3, 65530, -536870903, 4, 65530, -536870903, 5, 65530, -535429118, 65530, 65530, 2, 65531, 65530, -536870903, 65532, 65530, -536870903, 65533, 65530, -536870903, 65534, 65530, -536870903, 65535, 65530, 9, 0, 65531, -536870912, 1, 65531, -536870912, 2, 65531, 0, 3, 65531, 536870912, 4, 65531, -2147483648, 5, 65531, -535429111, 65530, 65531, -535822327, 65531, 65531, 0, 65532, 65531, 1610612736, 65533, 65531, -536870912, 65534, 65531, 536870912, 65535, 65531, 0, 0, 65532, 0, 1, 65532, 536870912, 2, 65532, -536870912, 3, 65532, 0, 4, 65532, 536870912, 5, 65532, 538312713, 65530, 65532, 1048585, 65531, 65532, 0, 65532, 65532, 0, 65533, 65532, 0, 65534, 65532, 0, 65535, 65532, 0, 0, 65533, -1610612736, 1, 65533, 536870912, 2, 65533, 0, 3, 65533, 0, 4, 65533, 0, 5, 65533, 1441801, 65530, 65533, 1048585, 65531, 65533, 0, 65532, 65533, -1610612736, 65533, 65533, 0, 65534, 65533, -1610612736, 65535, 65533, 536870912, 0, 65534, 0, 1, 65534, 536870912, 2, 65534, 0, 3, 65534, -536870912, 4, 65534, -536870912, 5, 65534, 1441801, 65530, 65534, 1048585, 65531, 65534, 0, 65532, 65534, 0, 65533, 65534, 0, 65534, 65534, 0, 65535, 65534, 0, 0, 65535, 0, 1, 65535, 0, 2, 65535, 0, 3, 65535, 0, 4, 65535, 0, 5, 65535, 1441801, 65530, 65535, 1048585, 65531, 65535, 0, 65532, 65535, 1048576, 65533, 65535, -2146435072, 65534, 65535, 1048576, 65535, 65535, 0 )
+}
+
+[node name="Key" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 1.42516, 0 )
+visible = false
+
+[node name="Gate" parent="." instance=ExtResource( 10 )]
+transform = Transform( -8.14603e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -8.14603e-08, 0, 2, 0 )
+visible = false
+
+[node name="Computer" parent="." instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.24507, 0 )

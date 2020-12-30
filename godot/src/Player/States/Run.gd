@@ -16,6 +16,7 @@ func physics_process(delta: float) -> void:
 
 
 
+# warning-ignore:unused_argument
 func enter(msg: = {}) -> void:
 	skin.transition_to(skin.States.RUN)
 	skin.is_moving = true
