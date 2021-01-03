@@ -1,18 +1,19 @@
 [gd_scene load_steps=16 format=2]
 
-[ext_resource path="res://src/Player/Camera/CameraRig.gd" type="Script" id=1]
-[ext_resource path="res://src/Player/Camera/AimTarget.gd" type="Script" id=2]
-[ext_resource path="res://src/Player/Camera/States/Default.gd" type="Script" id=3]
+[ext_resource path="res://src/Player/Camera/camera_rig.gd" type="Script" id=1]
+[ext_resource path="res://src/Player/Camera/aim_target.gd" type="Script" id=2]
+[ext_resource path="res://src/Player/Camera/States/default.gd" type="Script" id=3]
 [ext_resource path="res://src/Main/StateMachine/state_machine.gd" type="Script" id=4]
 [ext_resource path="res://assets/2d/crosshair076.png" type="Texture" id=5]
 [ext_resource path="res://src/Player/Camera/States/camera.gd" type="Script" id=6]
 [ext_resource path="res://src/Player/Camera/States/aim.gd" type="Script" id=7]
-[ext_resource path="res://src/Player/Camera/SpringArm.gd" type="Script" id=8]
-[ext_resource path="res://src/Player/Camera/HUD.gd" type="Script" id=9]
+[ext_resource path="res://src/Player/Camera/spring_arm.gd" type="Script" id=8]
+[ext_resource path="res://src/Player/Camera/hud.gd" type="Script" id=9]
 [ext_resource path="res://assets/theme/gdquest.theme" type="Theme" id=10]
 [ext_resource path="res://assets/theme/panel/panel.stylebox" type="StyleBox" id=11]
 [ext_resource path="res://assets/2d/icon_debug.svg" type="Texture" id=12]
-[ext_resource path="res://src/Player/Camera/States/Talk.gd" type="Script" id=13]
+[ext_resource path="res://src/Player/Camera/States/talk.gd" type="Script" id=13]
+
 
 
 [sub_resource type="CylinderMesh" id=1]
