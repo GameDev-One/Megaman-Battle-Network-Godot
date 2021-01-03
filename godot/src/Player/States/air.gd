@@ -4,6 +4,7 @@ extends PlayerState
 # author	Devone Reynolds
 # par		email: gamedevone1@gmail.com
 # date		31 DEC 2020
+# copyright	Copyright (c) 2021 GameDevone
 # brief		State for when the player is jumping and falling.
 """
 
